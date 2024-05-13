@@ -5,7 +5,7 @@ public class MulticastChatClient {
 
     public static void main(String [] args) throws Exception{
 
-        int portNumber = 55623;
+        int portNumber = 55623; //samma som server
 
         if (args.length >= 1) {
             portNumber = Integer.parseInt(args[0]);
@@ -19,7 +19,14 @@ public class MulticastChatClient {
 
         String msg = "";
 
-        System.out.println("Type a message for the server:");
+        System.out.println("Type a message for the server: ");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        msg = br.readLine();
+
+        DatagramPacket data = new DatagramPacket(msg.getBytes(), 0, msg.length(), group, portNumber);
+        chatMulticastSocket.send(data);
+
+        chatMulticastSocket.close();
 
 
     }
