@@ -19,7 +19,7 @@ public class MulticastChatClient {
 
         String msg = "";
 
-        System.out.println("Type a message for the server: ");
+        System.out.println("Type a message for the server:");
 
 
     }
